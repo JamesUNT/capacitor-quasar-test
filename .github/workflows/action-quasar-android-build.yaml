@@ -25,8 +25,7 @@ jobs:
         with:
             node-version: ${{ matrix.node-version }}
       - run: yarn install && yarn global add @quasar/cli
-      - run: export PATH="$(yarn global bin):$PATH"
-      - run: quasar build -m capacitor -T android --skip-pkg
+      - run: npx quasar build -m capacitor -T android --skip-pkg
       - run: chmod +x ./src-capacitor/android/gradlew
       - name: Gradle Android
         uses: vgaidarji/android-github-actions-build@v1.0.1
